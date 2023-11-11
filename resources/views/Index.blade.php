@@ -23,7 +23,7 @@
             <tr>
                 <td>{{$contact->id}}</td>
                 <td><a href="{{route('contacts.show', $contact->id)}}">{{$contact->name}}</a></td>
-                <td>{{$contact->phone}}</td>
+                <td>{{$contact->contact}}</td>
                 <td>
                     <a href="{{route('contacts.edit', $contact->id)}}" class="btn btn-primary">Edit</a>
                     <form action="{{route('contacts.destroy', $contact->id)}}" method="POST">
