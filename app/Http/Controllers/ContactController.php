@@ -61,9 +61,15 @@ class ContactController extends Controller
      */
     public function update(UpdateContactRequest $request, Contact $contact)
     {
-        $contact->update($request->validated());
+        $validated = $request->validated();
 
-        return redirect()->route('contacts.index');
+        if($request->validated()){
+            $contact->update($validated);
+            return redirect()->route('contacts.index');
+        }
+        else{
+            return redirect()->route('contacts.edit', $contact->id)->withErrors($validated);
+        }
     }
 
     /**
