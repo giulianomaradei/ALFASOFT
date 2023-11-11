@@ -41,7 +41,9 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
-        //
+        return view('ShowContact', [
+            'contact' => $contact
+        ]);
     }
 
     /**
@@ -49,7 +51,9 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        //
+        return view('EditContact', [
+            'contact' => $contact
+        ]);
     }
 
     /**
@@ -57,7 +61,9 @@ class ContactController extends Controller
      */
     public function update(UpdateContactRequest $request, Contact $contact)
     {
-        //
+        $contact->update($request->validated());
+
+        return redirect()->route('contacts.index');
     }
 
     /**

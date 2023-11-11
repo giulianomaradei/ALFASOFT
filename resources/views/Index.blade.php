@@ -22,7 +22,7 @@
             @foreach($contacts as $contact)
             <tr>
                 <td>{{$contact->id}}</td>
-                <td>{{$contact->name}}</td>
+                <td><a href="{{route('contacts.show', $contact->id)}}">{{$contact->name}}</a></td>
                 <td>{{$contact->phone}}</td>
                 <td>
                     <a href="{{route('contacts.edit', $contact->id)}}" class="btn btn-primary">Edit</a>

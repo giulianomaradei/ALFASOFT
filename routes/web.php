@@ -18,9 +18,10 @@ use \App\Http\Controllers\ContactController;
 Route::get('/', [ContactController::class, 'index'])->name('contacts.index');
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/show/{contact}', [ContactController::class, 'show'])->name('contacts.show');
     Route::get('/create', [ContactController::class, 'create'])->name('contacts.create');
-    Route::post('/store', [ContactController::class, 'store'])->name('contacts.store');
     Route::get('/edit/{contact}', [ContactController::class, 'edit'])->name('contacts.edit');
+    Route::post('/store', [ContactController::class, 'store'])->name('contacts.store');
     Route::put('/update/{contact}', [ContactController::class, 'update'])->name('contacts.update');
     Route::delete('/delete/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
 
